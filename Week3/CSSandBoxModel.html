@@ -2,13 +2,55 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Week 3 Lab | CSS and Box Model</title>
+        <!--
+        Example of indocument stylesheet CSS
+        -->
+        <style>
+            /*CSS Comment*/
+            /*
+                Example of selector using paragraph tab
+            */
+            p{
+                color: whitesmoke;
+                font-family: 'Courier New', Courier, monospace;
+                width: 700px;
+                border: 5px dashed red;
+                padding: 10px;
+                text-align: center;
+                margin: auto;
+                background-color: black;
+            }
+            body{
+                background-color:crimson;
+                background-image: url(images/cssbg.png);
+            }
+            a:link{
+                color: black;
+                text-decoration: none;
+            }
+            a:visited{
+                color: orange;
+            }
+            a:hover{
+                text-decoration: underline;
+            }
+            a:active{
+                color: red;
+            }
+        </style>
     </head>
     <body>
         <!--
             Example of inline style sheet CSS
         -->
-        <h1 style="margin:10px; border:5px solid teal; padding:10px; color: maroon; background-color:whitesmoke; font-family:Arial, Helvetica, sans-serif; text-align: center;">Welcome to Week 3 Lab</h1>
+        <h1 style="margin:10px; border:5px solid darkred; padding:10px; color: maroon; background-color:whitesmoke; font-family:Arial, Helvetica, sans-serif; text-align: center;">Welcome to Week 3 Lab</h1>
+        <ul>
+            <li><a href="page2week3.html">Link to Page 2</a></li>
+            <li><a href="http://www.amazon.com" target="_blank">Link to Amazon</a></li>
+        </ul>
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fuga ab ut at cupiditate voluptatem architecto nesciunt suscipit illo dolorem aliquam qui temporibus ex culpa officia, cum adipisci optio! Laborum, sapiente!</p>
     </body>
 </html>
