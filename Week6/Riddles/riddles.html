@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 6 | Riddles and JavaScript</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geostar+Fill&display=swap" rel="stylesheet">
+    <style>
+        @font-face{
+            font-family: zenzai;
+            src: url(fonts/ZenzaiItachi.ttf);
+        }
+        body{
+            font-family: zenzai;
+            font-size: x-large;
+        }
+    </style>
+</head>
+<body>
+    <div id="container"> 
+        <h1>Riddles and JavaScript Lab</h2>
+        <ol>
+            <li><p>I speak without a mouth and hear without ears. I have no body, but I come alive with wind. What am I?</p>
+                <br>
+                <button onclick="showAnswer('answer', 'An Echo')">Click here for answer</button>
+                <span id="answer"></span>
+                <hr>
+            </li>
+            <li><p>You measure my life in hours and I serve you by expiring. I’m quick when I’m thin and slow when I’m fat. The wind is my enemy.</p>
+                <br>
+                <button onclick="showAnswer('answer2', 'A Candle')">Click here for answer</button>
+                <span id="answer2"></span>
+                <hr>
+            </li>
+            <li><p>I have cities, but no houses. I have mountains, but no trees. I have water, but no fish. What am I?</p>
+                <br>
+                <button onclick="showAnswer('answer3', 'A Map')">Click here for answer</button>
+                <span id="answer3"></span>
+                <hr>
+            </li>
+            <li><p>What is seen in the middle of March and April that can’t be seen at the beginning or end of either month?</p>
+                <br>
+                <button onclick="showAnswer('answer4', 'The Letter R')">Click here for answer</button>
+                <span id="answer4"></span>
+                <hr>
+            </li>
+            <li><p>You see a boat filled with people. It has not sunk, but when you look again you don’t see a single person on the boat. Why?</p>
+                <br>
+                <button onclick="showAnswer('answer5', 'They were all married')">Click here for answer</button>
+                <span id="answer5"></span>
+                <hr>
+            </li>
+            <li><p>A woman shoots her husband, then holds him underwater for five minutes. Next, she hangs him. Right after, they enjoy a lovely dinner. Explain.</p>
+                <br>
+                <button onclick="showAnswer('answer6', 'She took a picture of him and developed it in a darkroom')">Click here for answer</button>
+                <span id="answer6"></span>
+            </li>
+            <li><p>I come from a mine and get surrounded by wood always. Everyone uses me. What am I?</p>
+                <br>
+                <button onclick="showAnswer('answer7', 'Pencil Lead')">Click here for answer</button>
+                <span id="answer7"></span>
+                <hr>
+            </li>
+            <li><p>What disappears as soon as you say its name?</p>
+                <br>
+                <button onclick="showAnswer('answer8', 'Silence')">Click here for answer</button>
+                <span id="answer8"></span>
+                <hr>
+            </li>
+            <li><p>I have keys, with locks and space, but no rooms. You can enter, but you can’t go outside. What am I?</p>
+                <br>
+                <button onclick="showAnswer('answer9', 'A Keyboard')">Click here for answer</button>
+                <span id="answer9"></span>
+            </li>
+            <li><p>Which word in the dictionary is always spelled incorrectly?</p>
+                <br>
+                <button onclick="showAnswer('answer10', 'Incorrectly')">Click here for answer</button>
+                <span id="answer10"></span>
+                <hr>
+            </li>
+        </ol>
+        <h2>Thank you for checking out the riddles page!</h2>
+    </div>
+    <script src="riddles.js"></script>
+</body>
+</html>
