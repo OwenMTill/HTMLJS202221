@@ -29,6 +29,8 @@ button{
     background-color: darkseagreen;
     border: 2px solid black;
     font-family: batu;
+    margin: 10px;
+    padding: 5px;
 }
 button:hover{
     color: white;
