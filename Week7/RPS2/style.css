@@ -1,0 +1,37 @@
+@font-face {
+    font-family: batu;
+    src: url(font/batuphat_script/Batuphat\ Script.otf);
+}
+html, body{
+    display:flex;
+    justify-content:center;
+    background-color: cadetblue;
+}
+nav{
+    display:flex;
+    justify-content:center;
+    padding: 20px;
+}
+h1{
+    display:flex;
+    justify-content:center;
+    background-color: cornflowerblue;
+    border: 2px dashed skyblue;
+    font-family: batu;
+    color: black;
+}
+canvas{
+    border: 2px dashed skyblue;
+    padding: 5px;
+    background-color:cornflowerblue;
+}
+button{
+    background-color: darkseagreen;
+    border: 2px solid black;
+    font-family: batu;
+    margin: 10px;
+    padding: 5px;
+}
+button:hover{
+    color: white;
+}
