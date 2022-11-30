@@ -3,25 +3,25 @@ var ctx = canvas.getContext("2d");
 // ctx.font = "30px Arial";
 // ctx.fillText("Welcome to Rock, Paper Scissors!", 275, 50);
 //create instances for images RPS
-var rock = new Image();
-var paper = new Image();
-var scissors = new Image();
-var hrock = new Image();
-var hpaper = new Image();
-var hscissors = new Image();
+var fire = new Image();
+var water = new Image();
+var grass = new Image();
+var hfire = new Image();
+var hwater = new Image();
+var hgrass = new Image();
 var winCount = 0;
 var lossCount = 0;
 var result = "Select a button from above to choose";
 
-rock.src = "RPSimages/images/rock.jpg";
-paper.src = "RPSimages/images/paper.jpg";
-scissors.src = "RPSimages/images/scissors.jpg";
-hrock.src = "RPSimages/images/rock2.jpg";
-hpaper.src = "RPSimages/images/paper2.jpg";
-hscissors.src = "RPSimages/images/scissors2.jpg";
+fire.src = "RPSimages/images/fire.png";
+water.src = "RPSimages/images/water.png";
+grass.src = "RPSimages/images/grass.png";
+hfire.src = "RPSimages/images/rock2.jpg";
+hwater.src = "RPSimages/images/paper2.jpg";
+hgrass.src = "RPSimages/images/scissors2.jpg";
 
-hscissors.onload = function(){
-    draw(rock, paper, scissors, rock, paper, scissors);
+hgrass.onload = function(){
+    draw(fire, water, grass, fire, water, grass);
 }
 document.addEventListener("keydown", keyPressDown);
 document.addEventListener("keyup", keyPressUp);
@@ -36,12 +36,12 @@ function keyPressUp(e){
     console.log(e.keyCode);
     if(e.keyCode == 32){
         gameOver = false;
-        draw(rock, paper, scissors, rock, paper, scissors);
+        draw(fire, water, grass, fire, water, grass);
     }
 }
 
 
-function draw(rock, paper, scissors, crock, cpaper, cscissors){
+function draw(fire, water, grass, cfire, cwater, cgrass){
     if(gameOver == true){
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         ctx.font = "30px Arial";
@@ -56,14 +56,14 @@ function draw(rock, paper, scissors, crock, cpaper, cscissors){
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     ctx.fillText("Player Choices", canvas.width/2, 50);
-    ctx.drawImage(rock, canvas.width/2 - rock.width/2 - 100, 150);
-    ctx.drawImage(paper, canvas.width/2 - paper.width/2, 150);
-    ctx.drawImage(scissors, canvas.width/2 - scissors.width/2 + 100, 150);
+    ctx.drawImage(fire, canvas.width/2 - fire.width/2 - 100, 150);
+    ctx.drawImage(water, canvas.width/2 - water.width/2, 150);
+    ctx.drawImage(grass, canvas.width/2 - grass.width/2 + 100, 150);
 
     ctx.fillText("CPU Choices", canvas.width/2, 350);
-    ctx.drawImage(crock, canvas.width/2 - rock.width/2 - 100, 450);
-    ctx.drawImage(cpaper, canvas.width/2 - paper.width/2, 450);
-    ctx.drawImage(cscissors, canvas.width/2 - scissors.width/2 + 100, 450);
+    ctx.drawImage(cfire, canvas.width/2 - fire.width/2 - 100, 450);
+    ctx.drawImage(cwater, canvas.width/2 - water.width/2, 450);
+    ctx.drawImage(cgrass, canvas.width/2 - grass.width/2 + 100, 450);
 
     ctx.fillText(result, canvas.width/2, 575);
 
@@ -74,23 +74,23 @@ function draw(rock, paper, scissors, crock, cpaper, cscissors){
 
 
 var rps = [];
-rps[0] = "Rock";
-rps[1] = "Paper";
-rps[2] = "Scissors";
+rps[0] = "Fire";
+rps[1] = "Water";
+rps[2] = "Grass";
 
-document.getElementById("rock").addEventListener("click", function (e) {
+document.getElementById("fire").addEventListener("click", function (e) {
     //alert("You Clicked: " + rps[0]);
     if(gameOver == false){
         play(rps[0]);
     }
 });
-document.getElementById("paper").addEventListener("click", function (e) {
+document.getElementById("water").addEventListener("click", function (e) {
     //alert("You Clicked: " + rps[1]);
     if(gameOver == false){
         play(rps[1]);
     }
 });
-document.getElementById("scissors").addEventListener("click", function (e) {
+document.getElementById("grass").addEventListener("click", function (e) {
     //alert("You Clicked: " + rps[2]);
     if(gameOver == false){
         play(rps[2]);
@@ -103,67 +103,67 @@ function play(playerChoice) {
     }
     var cpuChoice = Math.floor(Math.random() * 2.99);
     switch (playerChoice) {
-        case "Rock":
+        case "Fire":
             if (cpuChoice == 0) {
                 //alert("CPU Chose Rock, You Tied");
-                result = "CPU Chose Rock, You Tied";
-                draw(hrock, paper, scissors, hrock, paper, scissors);
+                result = "CPU Chose Fire, You Tied";
+                draw(hfire, water, grass, hfire, water, grass);
             }
             else if (cpuChoice == 1) {
                 //alert("CPU Chose Paper, You Lose");
                 lossCount++;
-                result = "CPU Chose Paper, You Lose";
-                draw(hrock, paper, scissors, rock, hpaper, scissors);
+                result = "CPU Chose Water, You Lose";
+                draw(hfire, water, grass, fire, hwater, grass);
                 
             }
             else {
                 //alert("CPU Chose Scissors, You Win");
                 winCount++;
-                result = "CPU Chose Scissors, You Win";
-                draw(hrock, paper, scissors, rock, paper, hscissors);
+                result = "CPU Chose Grass, You Win";
+                draw(hfire, water, grass, fire, water, hgrass);
                 
             }
             break;
-        case "Paper":
+        case "Water":
             if (cpuChoice == 0) {
                 //alert("CPU Chose Rock, You Win");
                 winCount++;
-                result = "CPU Chose Rock, You Win";
-                draw(rock, hpaper, scissors, hrock, paper, scissors);
+                result = "CPU Chose Fire, You Win";
+                draw(fire, hwater, grass, hfire, water, grass);
                 
             }
             else if (cpuChoice == 1) {
                 //alert("CPU Chose Paper, You Tied");
-                result = "CPU Chose Paper, You Tied";
-                draw(hrock, paper, scissors, rock, hpaper, scissors);
+                result = "CPU Chose Water, You Tied";
+                draw(fire, hwater, grass, fire, hwater, grass);
             }
             else {
                 //alert("CPU Chose Scissors, You Lose");
                 lossCount++;
-                result = "CPU Chose Scissors, You Lose";
-                draw(hrock, paper, scissors, rock, paper, hscissors);
+                result = "CPU Chose Grass, You Lose";
+                draw(fire, hwater, grass, fire, water, hgrass);
                 
             }
             break;
-        case "Scissors":
+        case "Grass":
             if (cpuChoice == 0) {
                 //alert("CPU Chose Rock, You Lose");
                 lossCount++;
-                result = "CPU Chose Rock, You Lose";
-                draw(rock, paper, hscissors, hrock, paper, scissors);
+                result = "CPU Chose Fire, You Lose";
+                draw(fire, water, hgrass, hfire, water, grass);
                 
             }
             else if (cpuChoice == 1) {
                 //alert("CPU Chose Paper, You Win");
                 winCount++;
-                result = "CPU Chose Paper, You Win";
-                draw(rock, paper, hscissors, rock, hpaper, scissors);
+                result = "CPU Chose Water, You Win";
+                draw(fire, water, hgrass, fire, hwater, grass);
                 
             }
             else {
                 //alert("CPU Chose Scissors, You Tied");
-                result = "CPU Chose Scissors, You Tied";
-                draw(rock, paper, hscissors, rock, paper, hscissors);
+                result = "CPU Chose Grass, You Tied";
+                draw(fire, water, hgrass, fire, water, hgrass);
             }
             break;
     }
