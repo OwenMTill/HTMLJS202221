@@ -16,9 +16,9 @@ var result = "Select a button from above to choose";
 fire.src = "RPSimages/images/fire.png";
 water.src = "RPSimages/images/water.png";
 grass.src = "RPSimages/images/grass.png";
-hfire.src = "RPSimages/images/rock2.jpg";
-hwater.src = "RPSimages/images/paper2.jpg";
-hgrass.src = "RPSimages/images/scissors2.jpg";
+hfire.src = "RPSimages/images/hfire.png";
+hwater.src = "RPSimages/images/hwater.png";
+hgrass.src = "RPSimages/images/hgrass.png";
 
 hgrass.onload = function(){
     draw(fire, water, grass, fire, water, grass);
@@ -56,14 +56,14 @@ function draw(fire, water, grass, cfire, cwater, cgrass){
     ctx.textAlign = "center";
     ctx.fillStyle = "black";
     ctx.fillText("Player Choices", canvas.width/2, 50);
-    ctx.drawImage(fire, canvas.width/2 - fire.width/2 - 100, 150);
+    ctx.drawImage(fire, canvas.width/2 - fire.width/2 - 200, 150);
     ctx.drawImage(water, canvas.width/2 - water.width/2, 150);
-    ctx.drawImage(grass, canvas.width/2 - grass.width/2 + 100, 150);
+    ctx.drawImage(grass, canvas.width/2 - grass.width/2 + 200, 150);
 
     ctx.fillText("CPU Choices", canvas.width/2, 350);
-    ctx.drawImage(cfire, canvas.width/2 - fire.width/2 - 100, 450);
-    ctx.drawImage(cwater, canvas.width/2 - water.width/2, 450);
-    ctx.drawImage(cgrass, canvas.width/2 - grass.width/2 + 100, 450);
+    ctx.drawImage(cfire, canvas.width/2 - fire.width/2 - 200, 380);
+    ctx.drawImage(cwater, canvas.width/2 - water.width/2, 380);
+    ctx.drawImage(cgrass, canvas.width/2 - grass.width/2 + 200, 380);
 
     ctx.fillText(result, canvas.width/2, 575);
 
