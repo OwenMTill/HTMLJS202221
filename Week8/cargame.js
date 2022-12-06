@@ -4,15 +4,15 @@ var ctx = canvas.getContext("2d");
 var timer = requestAnimationFrame(main);
 
 var start = 50;
-var finish = 750;
+var finish = canvas.width - 50;
 
 var carPos = 2;
-var startFuel = randomNumber(canvas.clientWidth, 600);
+var startFuel = randomNumber(canvas.clientWidth, 650);
 var fuel = startFuel;
 var fuelBarWidth = 300;
 var speed = 8;
 var gameOver = true;
-var carWidth = 50;
+var carWidth = 100;
 
 //start timer variables
 var seconds = 3;
@@ -21,11 +21,15 @@ var frames = fps;
 
 //game sprites
 var carSprite = new Image();
-carSprite.src = "images/61201.png";
+carSprite.src = "images/Miraidon.png";
+var background = new Image();
+background.src = "images/PokemonBackground.png";
 
-carSprite.onload = function(){
+background.onload = function(){
     main();
 }
+
+
 
 document.addEventListener("keydown", pressSpace);
 
@@ -33,7 +37,7 @@ function pressSpace(e){
     if(e.keyCode == 32 && gameOver){
         gameOver = false;
     }
-    if(fuel <= 0){
+    if(fuel <= 0 || carPos + carWidth > finish){
         restartGame();
     }
 }
@@ -41,7 +45,7 @@ function pressSpace(e){
 
 function main(){
     ctx.clearRect(0, 0, canvas.clientWidth, canvas.height);
-
+    
     if(gameOver){
         //Main Menu Screen
         ctx.save();
@@ -64,7 +68,8 @@ function main(){
             }
         }
         
-
+        
+        drawBackground();
         drawStartFinishLines();
         drawCar()
         drawFuelBar();
@@ -76,19 +81,23 @@ function main(){
     timer = requestAnimationFrame(main);
 }
 
+function drawBackground(){
+    ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+}
+
 function drawStartFinishLines(){
     //draw start line
     ctx.fillStyle = "black";
-    ctx.fillRect(start, 50, 10, 500);
+    ctx.fillRect(start, 50, 10, 800);
     //draw finish line
-    ctx.fillRect(finish, 50, 10, 500);
+    ctx.fillRect(finish, 50, 10, 800);
 }
 
 function drawCar(){
     //draw car
     ctx.fillStyle = "red";
     //ctx.fillRect(carPos, canvas.height/2, 40, 20);
-    ctx.drawImage(carSprite, carPos, canvas.height/2, carWidth, 30);
+    ctx.drawImage(carSprite, carPos, canvas.height * 3/4 - 65, carWidth, 100);
 }
 
 function drawFuelBar(){
@@ -106,6 +115,7 @@ function drawFuelBar(){
 function drawResults(){
     if(carPos + carWidth > finish){
         ctx.save();
+        speed = 0;
         ctx.fillStyle = "black";
         ctx.font = "25px Arial";
         ctx.textAlign = "center";
