@@ -30,11 +30,15 @@ function PlayerShip(){
         ctx.translate(this.x, this.y);
         ctx.fillStyle = "red";
         ctx.beginPath();
-        //when changing from vertical and horizontal and vice versa just switch the numbers
         ctx.moveTo(0, -10);
         ctx.lineTo(10, 10);
         ctx.lineTo(-10, 10);
         ctx.lineTo(0, -10);
+        //change to horizontal
+        //ctx.moveTo(10, 0);
+        //ctx.lineTo(-10, 10);
+        //ctx.lineTo(-10, -10);
+        //ctx.lineTo(10, 0);
         ctx.closePath();
         ctx.fill();
         ctx.restore();
