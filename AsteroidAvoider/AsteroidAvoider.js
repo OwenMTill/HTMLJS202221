@@ -12,6 +12,13 @@ var highScore = 0;
 //ship variables
 var ship = new PlayerShip();
 
+var shipSprite = new Image();
+shipSprite.src = "images/Spaceship.png";
+var asteroidSprite = new Image();
+asteroidSprite.src = "images/Asteroid.png";
+var menuImage = new Image();
+menuImage.src = "images/MenuBackground.png"
+
 
 function PlayerShip(){
     this.x = canvas.width/2;
@@ -29,6 +36,7 @@ function PlayerShip(){
         ctx.save();
         ctx.translate(this.x, this.y);
         ctx.fillStyle = "red";
+        ctx.drawImage(shipSprite, this.width - 33, this.height - 33, 23, 23);
         ctx.beginPath();
         //ctx.moveTo(0, -10);
         //ctx.lineTo(10, 10);
@@ -40,7 +48,7 @@ function PlayerShip(){
         ctx.lineTo(-10, -10);
         ctx.lineTo(10, 0);
         ctx.closePath();
-        ctx.fill();
+        //ctx.fill();
         ctx.restore();
     }
 
@@ -191,7 +199,11 @@ function Asteroid(){
     this.color = "white";
 
     this.drawAsteroid = function(){
+        ctx.drawImage(asteroidSprite, this.x - this.radius, this.y - this.radius, this.radius * 2, this.radius * 2);
+    }
+    /* this.drawAsteroid = function(){
         ctx.save();
+        ctx.drawImage(asteroidSprite, this.x, this.y, this.radius);
         ctx.beginPath();
         ctx.fillStyle = this.color;
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2, true);
@@ -199,6 +211,7 @@ function Asteroid(){
         ctx.fill();
         ctx.restore();
     }
+    */
 
 }
 

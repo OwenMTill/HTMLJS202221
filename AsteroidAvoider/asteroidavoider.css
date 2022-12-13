@@ -1,0 +1,25 @@
+html, body{
+    background-image: url("images/SeamlessSpace.jpeg");
+    display: flex;
+    justify-content: center;
+}
+#container{
+    background-color: blueviolet;
+}
+canvas{
+    background-image: url("images/SeamlessSpace.jpeg");
+}
+h1{
+    color: cadetblue;
+    text-align: center;
+    font-family: Asteroid;
+}
+p{
+    color: cadetblue;
+    text-align: center;
+    font-family: Asteroid;
+}
+@font-face {
+    font-family: Asteroid;
+    src: url("font/Press_Start_2P/PressStart2P-Regular.ttf");
+}
