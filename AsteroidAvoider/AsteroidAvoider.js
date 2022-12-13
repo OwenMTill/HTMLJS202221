@@ -30,15 +30,15 @@ function PlayerShip(){
         ctx.translate(this.x, this.y);
         ctx.fillStyle = "red";
         ctx.beginPath();
-        ctx.moveTo(0, -10);
-        ctx.lineTo(10, 10);
-        ctx.lineTo(-10, 10);
-        ctx.lineTo(0, -10);
-        //change to horizontal
-        //ctx.moveTo(10, 0);
+        //ctx.moveTo(0, -10);
+        //ctx.lineTo(10, 10);
         //ctx.lineTo(-10, 10);
-        //ctx.lineTo(-10, -10);
-        //ctx.lineTo(10, 0);
+        //ctx.lineTo(0, -10);
+        //change to horizontal
+        ctx.moveTo(10, 0);
+        ctx.lineTo(-10, 10);
+        ctx.lineTo(-10, -10);
+        ctx.lineTo(10, 0);
         ctx.closePath();
         ctx.fill();
         ctx.restore();
@@ -185,9 +185,9 @@ var asteroids = [];
 //class for asteroid objects
 function Asteroid(){
     this.radius = randomRange(15, 2);
-    this.x = randomRange(canvas.width - this.radius, this.radius);
-    this.y = randomRange(canvas.height - this.radius, this.radius) - canvas.height;
-    this.vy = randomRange(10, 5);
+    this.x = randomRange(canvas.width - this.radius, this.radius) + canvas.width;
+    this.y = randomRange(canvas.height - this.radius, this.radius);
+    this.vx = randomRange(10, 5);
     this.color = "white";
 
     this.drawAsteroid = function(){
@@ -226,7 +226,7 @@ function detectCollision(distance, calcDistance){
 function scoreTimer(){
     if(!gameOver){
         score++;
-        if(score % 1000 == 0){
+        if(score % 500 == 0){
             numAsteroids += 10;
             console.log(numAsteroids);
         }
@@ -260,10 +260,13 @@ gameState[1] = function(){
  
      //set up vertical movement
      if(ship.up){
-         ship.vy = -10;
+         ship.vy = -7;
+     }
+     else if(ship.down){
+         ship.vy = 7;
      }
      else{
-         ship.vy = 3;
+        ship.vy = 0;
      }
      //set up horizontal movement
      if(ship.left){
@@ -273,7 +276,7 @@ gameState[1] = function(){
          ship.vx = 7;
      }
      else{
-         ship.vx = 0;
+         ship.vx = -3;
      }
  
      for(var i = 0; i < asteroids.length; i++){
@@ -290,12 +293,12 @@ gameState[1] = function(){
              return;
          }
  
-         if(asteroids[i].y > canvas.height + asteroids[i].radius){
-             asteroids[i].x = randomRange(canvas.width - asteroids[i].radius, asteroids[i].radius);
-             asteroids[i].y = randomRange(canvas.height - asteroids[i].radius, asteroids[i].radius) - canvas.height;
+         if(asteroids[i].x < canvas.width - canvas.width + asteroids[i].radius){
+             asteroids[i].x = randomRange(canvas.width - asteroids[i].radius, asteroids[i].radius) + canvas.width;
+             asteroids[i].y = randomRange(canvas.height - asteroids[i].radius, asteroids[i].radius);
          }
          //draw the asteroids
-         asteroids[i].y += asteroids[i].vy;
+         asteroids[i].x -= asteroids[i].vx;
          asteroids[i].drawAsteroid();
      }
  
