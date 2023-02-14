@@ -30,17 +30,25 @@ var playerData ={
 			frames:
 			[
 				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
+				{width:64, height:64, startX:0, startY:0},
 				{width:64, height:64, startX:64, startY:0},
 				{width:64, height:64, startX:128, startY:0},
-				{width:64, height:64, startX:0, startY:64},
-				{width:64, height:64, startX:64, startY:64},
-				{width:64, height:64, startX:128, startY:64},
-				{width:64, height:64, startX:0, startY:128},
-				{width:64, height:64, startX:64, startY:128},
-				{width:64, height:64, startX:128, startY:128},
-				{width:64, height:64, startX:0, startY:192},
-				{width:64, height:64, startX:64, startY:192},
-				{width:64, height:64, startX:128, startY:192},
+				{width:64, height:64, startX:192, startY:0},
+				{width:64, height:64, startX:256, startY:0},
+				{width:64, height:64, startX:320, startY:0},
+				{width:64, height:64, startX:384, startY:0},
+				{width:64, height:64, startX:448, startY:0},
+				{width:64, height:64, startX:512, startY:0},
+				{width:64, height:64, startX:576, startY:0},
+				{width:64, height:64, startX:640, startY:0},
+				{width:64, height:64, startX:704, startY:0},
 				
 			]
 		},
@@ -51,11 +59,11 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:128, height:128, startX:0, startY:0},
-				{width:128, height:128, startX:128, startY:0},
-				{width:128, height:128, startX:256, startY:0},
-				{width:128, height:128, startX:384, startY:0},
-				{width:128, height:128, startX:512, startY:0}
+				{width:64, height:64, startX:768, startY:0},
+				{width:64, height:64, startX:832, startY:0},
+				{width:64, height:64, startX:896, startY:0},
+				{width:64, height:64, startX:960, startY:0},
+				{width:64, height:64, startX:1024, startY:0}
 			]
 		},
 		//The jump animation 
@@ -65,7 +73,7 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:128, height:128, startX:640, startY:0}
+				{width:64, height:64, startX:640, startY:0}
 			]
 		},
 		//The crouch animation 
@@ -75,11 +83,11 @@ var playerData ={
 			cycle:true,
 			frames:
 			[
-				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:768, startY:0},
-				{width:128, height:128, startX:896, startY:0}
+				{width:64, height:64, startX:768, startY:0},
+				{width:64, height:64, startX:768, startY:0},
+				{width:64, height:64, startX:768, startY:0},
+				{width:64, height:64, startX:768, startY:0},
+				{width:64, height:64, startX:896, startY:0}
 			]
 		},
 		//The attack animation 
@@ -90,13 +98,13 @@ var playerData ={
 			//width:300,
 			frames:
 			[
-				{width:128, height:128, startX:1024, startY:0},
-				{width:128, height:128, startX:1024, startY:0},
-				{width:128, height:128, startX:1024, startY:0},
-				{width:128, height:128, startX:1152, startY:0},
-				{width:128, height:128, startX:1152, startY:0},
-				{width:128, height:128, startX:1152, startY:0},
-				{width:128, height:128, startX:1152, startY:0}
+				{width:64, height:64, startX:1024, startY:0},
+				{width:64, height:64, startX:1024, startY:0},
+				{width:64, height:64, startX:1024, startY:0},
+				{width:64, height:64, startX:1152, startY:0},
+				{width:64, height:64, startX:1152, startY:0},
+				{width:64, height:64, startX:1152, startY:0},
+				{width:64, height:64, startX:1152, startY:0}
 				
 			]
 		}

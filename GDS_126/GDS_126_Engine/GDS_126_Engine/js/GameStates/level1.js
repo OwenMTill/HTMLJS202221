@@ -7,7 +7,7 @@ var stage = new GameObject({width:canvas.width, height:canvas.height});
 
 //Avatar
 var wiz = new GameObject({width:128, height:128, spriteData:playerData}).makeSprite(playerData)
-wiz.force=1
+wiz.force= 2
 
 //The ground
 var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2,height:64,y:canvas.height-32, color:"green"})
