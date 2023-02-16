@@ -83,11 +83,11 @@ var currentBullet = 0;
 
 for(let i=0; i<100; i++)
 {
-	bullets[i] = new GameObject({width:64, height:64})
+	bullets[i] = new GameObject({width:128, height:128, spriteData:projectileData})
 	//bullets[i].img.src="images/mrt.jpg"
-	bullets[i].makeSprite(playerData)
+	bullets[i].makeSprite(projectileData)
 	bullets[i].y=-10000
-	bullets[i].changeState(`walk`)
+	bullets[i].changeState(`idle`)
 }
 
 //console.log(bullets)
@@ -158,10 +158,10 @@ gameStates[`level1`] = function()
 			shotTimer = shotDelay
 			//console.log(`Boom`)
 
-			bullets[currentBullet].vx = 5*wiz.dir;
+			bullets[currentBullet].vx = 25*wiz.dir;
 			bullets[currentBullet].world = level;
-			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir * 96) ;
-			bullets[currentBullet].y = wiz.y + 20;
+			bullets[currentBullet].x = wiz.x-level.x + (wiz.dir) ;
+			bullets[currentBullet].y = wiz.y;
 			bullets[currentBullet].dir = wiz.dir;
 			
 			//sounds.play(`splode`,1)
@@ -295,7 +295,7 @@ gameStates[`level1`] = function()
 	//Moves, checks collision and renders projectiles.
 	for(let i=0; i<bullets.length; i++)
 	{
-		if(bullets[i].overlap(stage)) bullets[i].vy+=1;
+		//if(bullets[i].overlap(stage)) bullets[i].vy+=1;
 		bullets[i].move()
 		bullets[i].play(function(){return}).drawSprite()
 		//bullets[i].angle+=10
