@@ -73,14 +73,14 @@ var playerData ={
 			cycle:false,
 			frames:
 			[
-				{width:64, height:64, startX:64, startY:197},
-				{width:64, height:64, startX:0, startY:197},
-				{width:64, height:64, startX:128, startY:197},
-				{width:64, height:64, startX:192, startY:197},
-				{width:64, height:64, startX:256, startY:197},
-				{width:64, height:64, startX:320, startY:197},
-				{width:64, height:64, startX:384, startY:197},
-				{width:64, height:64, startX:448, startY:197}
+				{width:64, height:64, startX:64, startY:198},
+				{width:64, height:64, startX:0, startY:198},
+				{width:64, height:64, startX:128, startY:198},
+				{width:64, height:64, startX:192, startY:198},
+				{width:64, height:64, startX:256, startY:198},
+				{width:64, height:64, startX:320, startY:198},
+				{width:64, height:64, startX:384, startY:198},
+				{width:64, height:64, startX:448, startY:198}
 			]
 		},
 		//The crouch animation 
