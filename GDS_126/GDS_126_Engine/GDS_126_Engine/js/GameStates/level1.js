@@ -8,7 +8,7 @@ var stage = new GameObject({width:canvas.width, height:canvas.height});
 //Avatar
 var wiz = new GameObject({width:128, height:128, spriteData:playerData}).makeSprite(playerData)
 wiz.force= 2
-
+wiz.bottom = {x:0, y:40}
 //The ground
 var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2,height:64,y:canvas.height-32, color:"green"})
 ground.img.src=`images/ground.png`
@@ -78,7 +78,7 @@ bg.img.src=`images/bgfull.png`
 var bullets=[]
 var canShoot=true;
 var shotTimer = 0;
-var shotDelay = 21;
+var shotDelay = 10;
 var currentBullet = 0;
 
 for(let i=0; i<100; i++)
@@ -299,11 +299,11 @@ gameStates[`level1`] = function()
 		bullets[i].move()
 		bullets[i].play(function(){return}).drawSprite()
 		//bullets[i].angle+=10
-		while(g1.collide(bullets[i].bottom) && bullets[i].vy>=0)
+		while(g1.collide(bullets[i].right))
 		{
 			
 			bullets[i].vy=0;
-			bullets[i].y--;
+			bullets[i].y = 10000;
 			
 		}
 	}
