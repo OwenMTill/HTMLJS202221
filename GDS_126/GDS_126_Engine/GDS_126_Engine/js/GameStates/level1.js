@@ -14,19 +14,21 @@ var ground = new GameObject({width:canvas.width*10, x:canvas.width*10/2,height:6
 ground.img.src=`images/ground.png`
 
 //A platform
-var plat = new GameObject({width:256, height:64,y:canvas.height-200, color:"green"})
-
+var plat = new GameObject({width:250, height:200,y:canvas.height - 142, color:"green"})
+plat.img.src='images/Platform.png'
+//162
 //A level object when it is moved other objects move with it.
 var level = new GameObject({x:0,y:0});
 ground.world = level;
 plat.world = level;
+plat.x = plat.x + 700
 
 //Cave foreground Tile Grid
-var cave = new Grid(caveData, {world:level, x:1024, tileHeight:64, tileWidth:64});
+var cave = new Grid(caveData, {world:level, x:2100, tileHeight:64, tileWidth:64});
 //Cave background Tile Grid
-var caveBack = new Grid(caveBackData, {world:level, x:1024, tileHeight:64, tileWidth:64});
+var caveBack = new Grid(caveBackData, {world:level, x:2100, tileHeight:64, tileWidth:64});
 //cave hitbox grid
-var caveHit = new Grid(caveHitData, {world:level, x:1024, tileHeight:64, tileWidth:64});
+var caveHit = new Grid(caveHitData, {world:level, x:2100, tileHeight:64, tileWidth:64});
 
 var leftBorder = new GameObject({x:0, height:canvas.height, world:level})
 
@@ -70,8 +72,9 @@ var rbg = new GameObject({x:level.x, y:level.y, width:1024, height:512})
 rbg.img.src=`images/MiddleGround.png`
 
 //middleground
-var bg = new GameObject({x:level.x,y:level.y, width:canvas.width*4, height:canvas.height})
-bg.img.src=`images/bgfull.png`
+var bg = new GameObject({x:level.x,y:level.y - 64, width:canvas.width*8, height:canvas.height})
+bg.img.src='images/Foreground.png'
+
 
 /*------------------vvBULLET STUFFvv----------------------*/
 
@@ -254,9 +257,10 @@ gameStates[`level1`] = function()
 	
 	//Sets up pattern for the ground
 	var groundPattern = context.createPattern(ground.img, `repeat`);
+	var platPattern = context.createPattern(plat.img, `repeat`);
 	//Applies pattern to ground and platform
 	ground.color = groundPattern
-	plat.color = groundPattern
+	plat.color = platPattern
 
 	//Sets up pattern for the sky
 	var skyPattern = context.createPattern(sky.img, `repeat`);
@@ -273,6 +277,7 @@ gameStates[`level1`] = function()
 
 	//renders the midground
 	bg.drawStaticImage([0,0]);
+    
 	
 	//alternate methd for rendering the repeating background
 	//rbg.render(`drawStaticImage`, [0,0])

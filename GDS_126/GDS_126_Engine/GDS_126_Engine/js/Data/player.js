@@ -103,7 +103,6 @@ var playerData ={
 			//width:300,
 			frames:
 			[
-				{width:64, height:64, startX:0, startY:0},
 				{width:64, height:64, startX:64, startY:0},
 				{width:64, height:64, startX:128, startY:0},
 				{width:64, height:64, startX:192, startY:0},
@@ -117,4 +116,28 @@ var playerData ={
 		}
 	}
 		
+}
+
+var buttonData = {
+	info:{
+		src:'images/StartButton.png'
+	},
+	states:{
+		idle:{
+			fps: 1,
+			cycle: true,
+			frames:
+			[
+				{width: 1377, height: 316, startX:0, startY:0}
+			]
+		},
+		hover:{
+			fps: 1,
+			cycle: true,
+			frames:
+			[
+				{width: 1377, height: 316, startX:1377, startY:0}
+			]
+		}
+	}
 }
