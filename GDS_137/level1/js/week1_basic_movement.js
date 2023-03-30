@@ -5,16 +5,16 @@ var context;
 var timer;
 //1000 ms or 1 second / FPS
 var interval = 1000/60;
-var player;
+var ball;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player = new Player();
-	player.vx = 10;
-	player.vy = 10;
+	ball = new Ball();
+	ball.vx = 10;
+	ball.vy = 10;
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
 
@@ -24,30 +24,30 @@ function animate()
 	context.clearRect(0,0,canvas.width, canvas.height);	
 	
 	//Move the Player
-	player.x += player.vx;
-	player.y += player.vy;
+	ball.x += ball.vx;
+	ball.y += ball.vy;
 
-	if(player.x < player.width/2)
+	if(ball.x < ball.width/2)
 	{
-		player.x = player.width/2
-		player.vx = -player.vx;
+		ball.x = ball.width/2
+		ball.vx = -ball.vx;
 	}
-	if(player.x > canvas.width - player.width/2)
+	if(ball.x > canvas.width - ball.width/2)
 	{
-		player.x = canvas.width - player.width/2;
-		player.vx = -player.vx;
+		ball.x = canvas.width - ball.width/2;
+		ball.vx = -ball.vx;
 	}
-	if(player.y < player.width/2)
+	if(ball.y < ball.width/2)
 	{
-		player.y = player.width/2
-		player.vy = -player.vy;
+		ball.y = ball.width/2
+		ball.vy = -ball.vy;
 	}
-	if(player.y > canvas.height - player.width/2)
+	if(ball.y > canvas.height - ball.width/2)
 	{
-		player.y = canvas.height - player.width/2
-		player.vy = -player.vy;
+		ball.y = canvas.height - ball.width/2
+		ball.vy = -ball.vy;
 	}
 	
 	//Update the Screen
-	player.draw();
+	ball.draw();
 }

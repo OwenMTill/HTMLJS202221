@@ -2,7 +2,7 @@
 
 //capital letters for classes
 
-function Player()
+function Ball()
 {
 	//player's location
 	this.x = canvas.width/2;
