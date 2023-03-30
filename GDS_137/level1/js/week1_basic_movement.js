@@ -31,21 +31,25 @@ function animate()
 	{
 		ball.x = ball.width/2
 		ball.vx = -ball.vx;
+		ball.color = "#ff0000";
 	}
 	if(ball.x > canvas.width - ball.width/2)
 	{
 		ball.x = canvas.width - ball.width/2;
 		ball.vx = -ball.vx;
+		ball.color = "#00ff00";
 	}
 	if(ball.y < ball.width/2)
 	{
 		ball.y = ball.width/2
 		ball.vy = -ball.vy;
+		ball.color = "#0000ff";
 	}
 	if(ball.y > canvas.height - ball.width/2)
 	{
 		ball.y = canvas.height - ball.width/2
 		ball.vy = -ball.vy;
+		ball.color = "#03051f";
 	}
 	
 	//Update the Screen
