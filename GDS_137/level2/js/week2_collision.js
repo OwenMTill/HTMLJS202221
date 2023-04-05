@@ -77,6 +77,7 @@ function animate()
 	if(rBlock2.hitTestObject(player))
 	{
 		player.x = prevX;
+		//move it over half the box and half the ball
 		console.log("colliding");
 	}
 	else
