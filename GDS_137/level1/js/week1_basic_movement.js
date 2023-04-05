@@ -8,8 +8,7 @@ var interval = 1000/60;
 var ball;
 
 	//Set Up the Canvas
-	canvas = document.getElementById("canvas");
-	context = canvas.getContext("2d");	
+	context = canvas.getContext("2d");	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
 	ball = new Ball();
