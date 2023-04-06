@@ -59,18 +59,24 @@ function animate()
 	}
 	if(ball.y < ball.width/2)
 	{
-		ball.y = ball.width/2
+		ball.y = ball.width/2;
 		ball.vy = -ball.vy;
 	}
 	if(ball.y > canvas.height - ball.width/2)
 	{
-		ball.y = canvas.height - ball.width/2
+		ball.y = canvas.height - ball.width/2;
 		ball.vy = -ball.vy;
 	}
 
 	if (ball.hitTestObject(player)){
-		ball.x = player.width/2 + ball.width/2
-		ball.vx = -ball.vx
+		ball.x = player.width/2 + ball.width/2;
+		ball.vx = -ball.vx;
+	}
+	
+	if (ball.x < 0 - ball.width/2)
+	{
+		ball.x = canvas.width/2;
+		ball.y = canvas.height/2;
 	}
 
 	//Update the Screen
