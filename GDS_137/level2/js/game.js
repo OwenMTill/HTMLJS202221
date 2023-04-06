@@ -12,7 +12,7 @@ var player;
 	context = canvas.getContext("2d");	
 	
 	//Instantiate the Player
-	player = new GameObject();
+	player = new GameObject(0, canvas.height/2, 20, 150, "#660099");
 
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
@@ -35,6 +35,15 @@ function animate()
 		player.y += -4;
 	}
 	
+	if(player.y < 0 + player.height/2)
+	{
+		player.y = player.height/2
+	}
+	
+	if(player.y > canvas.height - player.height/2)
+	{
+		player.y = canvas.height - player.height/2
+	}
 	//Update the Screen
 	player.drawRect();
 }
