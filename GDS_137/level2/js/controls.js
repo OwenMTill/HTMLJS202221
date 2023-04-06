@@ -12,7 +12,7 @@ function press(e)
 	//---This logs key codes into the browser's console.
 	//console.log("Pressed" + e.keyCode);
 	
-	if(e.keyCode == 83)
+	if(e.keyCode == 83 )
 	{
 		s = true;
 	}

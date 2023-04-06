@@ -15,6 +15,7 @@ var ball;
 	//Instantiate the Player
 	player = new GameObject(0, canvas.height/2, 20, 150, "#660099");
 	ball = new GameObject();
+	ball.width = 50;
 
 	ball.vx = 10;
 	ball.vy = 10;
@@ -31,12 +32,12 @@ function animate()
 	if(s)
 	{
 		console.log("Moving Down");
-		player.y += 4;
+		player.y += 10;
 	}
 	if(w)
 	{
 		console.log("Moving Up");
-		player.y += -4;
+		player.y += -10;
 	}
 	
 	if(player.y < 0 + player.height/2)
@@ -51,11 +52,6 @@ function animate()
 	ball.x += ball.vx;
 	ball.y += ball.vy;
 
-	if(ball.x < ball.width/2)
-	{
-		ball.x = ball.width/2
-		ball.vx = -ball.vx;
-	}
 	if(ball.x > canvas.width - ball.width/2)
 	{w
 		ball.x = canvas.width - ball.width/2;
@@ -71,6 +67,12 @@ function animate()
 		ball.y = canvas.height - ball.width/2
 		ball.vy = -ball.vy;
 	}
+
+	if (ball.hitTestObject(player)){
+		ball.x = player.width/2 + ball.width/2
+		ball.vx = -ball.vx
+	}
+
 	//Update the Screen
 	player.drawRect();
 	ball.drawCircle();
