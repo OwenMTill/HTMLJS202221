@@ -34,13 +34,22 @@ function animate()
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
 
+	context.save();
+	context.strokeStyle = "yellow";
+	context.beginPath();
+	context.moveTo(canvas.width/2, 0);
+	context.lineTo(canvas.width/2, canvas.height);
+	context.closePath();
+	context.lineWidth = 3; 
+	context.stroke();
+	context.restore();
 
 	context.font = "20px Georgia";
 	context.textAlign = "center";
-	context.fillText("Player 1 | Player 2", canvas.width/2, 50);
+	context.fillText("Player 1 | Player 2", canvas.width/2 + 1.5, 50);
 	context.font = "15px Georgia";
 	context.textAlign = "center";
-	context.fillText(p1Wins + " - " + p2Wins, canvas.width/2, 70);
+	context.fillText(p1Wins + " - " + p2Wins, canvas.width/2 + 0.5, 70);
 	//Move the Player to the right
 	if(s)
 	{
