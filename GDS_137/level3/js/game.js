@@ -8,10 +8,15 @@ var interval = 1000/60;
 var player;
 var player2;
 var ball;
+var p1Wins = 0;
+var p2Wins = 0;
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
+
+	
+	
 	
 	//Instantiate the Player
 	player = new GameObject(0, canvas.height/2, 20, 150, "#ff0000");
@@ -28,8 +33,14 @@ function animate()
 {
 	//Erase the Screen
 	context.clearRect(0,0,canvas.width, canvas.height);	
-	
-	
+
+
+	context.font = "20px Georgia";
+	context.textAlign = "center";
+	context.fillText("Player 1 | Player 2", canvas.width/2, 50);
+	context.font = "15px Georgia";
+	context.textAlign = "center";
+	context.fillText(p1Wins + " - " + p2Wins, canvas.width/2, 70);
 	//Move the Player to the right
 	if(s)
 	{
@@ -129,11 +140,15 @@ function animate()
 	{
 		ball.x = canvas.width/2;
 		ball.y = canvas.height/2;
+		p2Wins += 1;
+		console.log(p2Wins);
 	}
 	if (ball.x > canvas.width + ball.width/2)
 	{
 		ball.x = canvas.width/2;
 		ball.y = canvas.height/2;
+		p1Wins += 1;
+		console.log(p1Wins);
 	}
 
 	//Update the Screen
