@@ -10,6 +10,7 @@ var player2;
 var ball;
 var p1Wins = 0;
 var p2Wins = 0;
+var img = document.getElementById("ric");
 
 	//Set Up the Canvas
 	canvas = document.getElementById("canvas");
@@ -50,6 +51,8 @@ function animate()
 	context.font = "15px Georgia";
 	context.textAlign = "center";
 	context.fillText(p1Wins + " - " + p2Wins, canvas.width/2 + 0.5, 70);
+
+	context.drawImage(img, ball.x - 28, ball.y - 32, ball.width + 15, ball.height/2 + 15);
 	//Move the Player to the right
 	if(s)
 	{
@@ -163,6 +166,6 @@ function animate()
 	//Update the Screen
 	player.drawRect();
 	player2.drawRect();
-	ball.drawCircle();
+	//ball.drawCircle();
 }
 
