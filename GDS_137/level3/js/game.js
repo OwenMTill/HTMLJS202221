@@ -24,6 +24,7 @@ var img = document.getElementById("ric");
 	player2 = new GameObject(canvas.width, canvas.height/2, 20, 150, "#006f00");
 	ball = new GameObject();
 	ball.width = 50;
+	ball.height = 50;
 
 	ball.vx = -10;
 	ball.vy = 0;
@@ -52,7 +53,6 @@ function animate()
 	context.textAlign = "center";
 	context.fillText(p1Wins + " - " + p2Wins, canvas.width/2 + 0.5, 70);
 
-	context.drawImage(img, ball.x - 28, ball.y - 32, ball.width + 15, ball.height/2 + 15);
 	//Move the Player to the right
 	if(s)
 	{
@@ -167,5 +167,6 @@ function animate()
 	player.drawRect();
 	player2.drawRect();
 	//ball.drawCircle();
+	context.drawImage(img, ball.x - ball.width/2, ball.y - ball.height/2, ball.width, ball.height);
 }
 
