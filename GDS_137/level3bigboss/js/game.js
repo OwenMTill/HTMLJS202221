@@ -29,7 +29,6 @@ var gravity = 1;
 	player.force = 2;
 	ball.vx = 0;
 	ball.vy = 10;
-	ball.vy += gravity;
 	//Set the Animation Timer
 	timer = setInterval(animate, interval);
 
@@ -62,7 +61,7 @@ function animate()
 		player.vx = 0;
 	}
 
-
+	ball.vy += gravity;
 	ball.x += ball.vx;
 	ball.y += ball.vy;
 
@@ -94,24 +93,21 @@ function animate()
         ball.y = player.y - player.height/2 - ball.height/2;
         ball.vy = -ball.vy;
         score++;
+		ball.vy = -35;
         if(ball.x < player.x - player.width/3)
         {
-            ball.vy = -35;
             ball.vx = -ball.force*5;
         }
         if(ball.x > player.x - player.width/3 && ball.x < player.x - player.width/6)
         {
-            ball.vy = -35;
             ball.vx = -ball.force;
         }
         if(ball.x < player.x + player.width/3 && ball.x > player.x + player.width/6)
         {
-            ball.vy = -35;
             ball.vx = ball.force;
         }
         if(ball.x > player.x + player.width/3)
         {
-            ball.vy = -35;
             ball.vx = ball.force*5 ;
         }
 
@@ -130,7 +126,7 @@ function animate()
 	context.stroke();
 	context.restore();
 
-	context.font = "16px Arial";
+	context.font = "16px Arial black";
 	context.fillStyle = "#555555"
 	context.fillText("Score: " + score, 80, 25);
 }
