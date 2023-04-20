@@ -142,12 +142,19 @@ function animate()
 	if(player.hitTestObject(goal))
 	{
 		goal.y = 10000;
+		player.vx = 0;
 	}
 	
 	while(platform1.hitTestPoint(player.right()) && goal.y == 10000)
 	{
 		platform1.x = 10000;
 	}
+	while(platform1.hitTestPoint(player.right()))
+	{
+		player.x--;
+	}
+
+	
 
 
 
