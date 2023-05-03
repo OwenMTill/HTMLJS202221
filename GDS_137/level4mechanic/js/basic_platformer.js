@@ -6,6 +6,7 @@ var timer;
 var interval;
 var player;
 var gun;
+var bullet;
 
 
 
@@ -14,14 +15,18 @@ var gun;
 
 	player = new GameObject({x:150});
 	gun = new GameObject();
-
+	bullet = new GameObject();
+	
+	bullet.color = "cyan";
 	gun.width = 60;
+	bullet.width = 10;
 	gun.height = 20;
+	bullet.height = 10;
 	gun.x = player.x + 50;
+	bullet.x = 1000000;
 	gun.y = player.y - 10;
+	bullet.y = 1000000;
 	gun.color = "black";
-
-	var bullets = [];
 	
 
 	platform0 = new GameObject();
@@ -95,6 +100,11 @@ function animate()
 	if(downArrow && gun.x == player.x - 50)
 	{
 		gun.angle = -45;
+	}
+	if(space && gun.angle == 0 && gun.x == player.x + 50)
+	{
+		bullet.x = gun.x;
+		bullet.y = gun.y;
 	}
 	
 
@@ -194,6 +204,7 @@ function animate()
 	platform1.drawRect();
 	gun.drawRect();
 	player.drawRect();
+	bullet.drawCircle();
 	
 }
 
