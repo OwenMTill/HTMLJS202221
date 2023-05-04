@@ -277,7 +277,7 @@ function animate()
 	context.fillText("Press Space to Shoot", 50, 50);
 	context.font = "26px Arial black";
 	context.fillText("Press Up and Down Arrows to Aim Up and Down 45 Degrees", 50, 100);
-	context.fillText("Press A and D to Aim Left and Right", 50, 100);
+	context.fillText("Press A and D to Aim Left and Right", 50, 150);
 }
 
 function timedShot()
