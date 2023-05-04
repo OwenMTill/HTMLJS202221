@@ -7,8 +7,8 @@ var interval;
 var player;
 var gun;
 var bullet;
-
-
+var timer;
+var interval;
 
 	canvas = document.getElementById("canvas");
 	context = canvas.getContext("2d");	
@@ -19,9 +19,9 @@ var bullet;
 	
 	bullet.color = "cyan";
 	gun.width = 60;
-	bullet.width = 10;
+	bullet.width = 15;
 	gun.height = 20;
-	bullet.height = 10;
+	bullet.height = 15;
 	gun.x = player.x + 50;
 	bullet.x = 1000000;
 	gun.y = player.y - 10;
@@ -51,6 +51,8 @@ var bullet;
 
 	interval = 1000/60;
 	timer = setInterval(animate, interval);
+	var shootTimer;
+	
 
 function animate()
 {
@@ -101,11 +103,74 @@ function animate()
 	{
 		gun.angle = -45;
 	}
-	if(space && gun.angle == 0 && gun.x == player.x + 50)
+
+	if(space && gun.angle == 0 && gun.x == player.x + 50 && bullet.bulletShoot == false)
 	{
+		bullet.bulletShoot = true;
 		bullet.x = gun.x;
 		bullet.y = gun.y;
+		bullet.vx = 20;
+		bullet.vy = 0;
+		clearTimeout(shootTimer);
+		shootTimer = setTimeout(timedShot, 500);
 	}
+	
+	if(space && gun.angle == 0 && gun.x == player.x - 50 && bullet.bulletShoot == false)
+	{
+		bullet.bulletShoot = true;
+		bullet.x = gun.x;
+		bullet.y = gun.y;
+		bullet.vx = -20;
+		bullet.vy = 0;
+		clearTimeout(shootTimer);
+		shootTimer = setTimeout(timedShot, 500);
+	}
+
+	if(space && downArrow && gun.x == player.x + 50 && bullet.bulletShoot == false)
+	{
+		bullet.bulletShoot = true;
+		bullet.x = gun.x;
+		bullet.y = gun.y;
+		bullet.vx = 20;
+		bullet.vy = 20;
+		clearTimeout(shootTimer);
+		shootTimer = setTimeout(timedShot, 500);
+	}
+
+	if(space && downArrow && gun.x == player.x - 50 && bullet.bulletShoot == false)
+	{
+		bullet.bulletShoot = true;
+		bullet.x = gun.x;
+		bullet.y = gun.y;
+		bullet.vx = -20;
+		bullet.vy = 20;
+		clearTimeout(shootTimer);
+		shootTimer = setTimeout(timedShot, 500);
+	}
+
+	if(space && upArrow && gun.x == player.x + 50 && bullet.bulletShoot == false)
+	{
+		bullet.bulletShoot = true;
+		bullet.x = gun.x;
+		bullet.y = gun.y;
+		bullet.vx = 20;
+		bullet.vy = -20;
+		clearTimeout(shootTimer);
+		shootTimer = setTimeout(timedShot, 500);
+	}
+
+	if(space && upArrow && gun.x == player.x - 50 && bullet.bulletShoot == false)
+	{
+		bullet.bulletShoot = true;
+		bullet.x = gun.x;
+		bullet.y = gun.y;
+		bullet.vx = -20;
+		bullet.vy = -20;
+		clearTimeout(shootTimer);
+		shootTimer = setTimeout(timedShot, 500);
+	}
+	bullet.x += bullet.vx;
+	bullet.y += bullet.vy;
 	
 
 	player.vx *= fX;
@@ -205,6 +270,9 @@ function animate()
 	gun.drawRect();
 	player.drawRect();
 	bullet.drawCircle();
-	
 }
 
+function timedShot()
+{
+	bullet.bulletShoot = false;
+}
