@@ -290,11 +290,14 @@ function animate()
 	
 
 	context.font = "15px Arial black";
+	context.fillStyle = "black";
 	context.fillText("Press Space to Shoot", 50, 50);
 	context.font = "15px Arial black";
+	context.fillStyle = "black";
 	context.fillText("Press Up and Down Arrows to Aim Up and Down 45 Degrees", 50, 100);
 	context.fillText("Press A and D to Aim Left and Right", 50, 150);
 	context.font = "15px Arial black";
+	context.fillStyle = "black";
 	context.fillText("Press E to dash", 50, 200);
 }
 
