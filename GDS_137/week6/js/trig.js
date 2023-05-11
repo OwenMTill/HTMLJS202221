@@ -40,7 +40,7 @@ function animate()
 	angularMovement();
 	
 	/*-----------These move the follower-----------------*/
-	//magnet(); //- eases the follower towards the player - 
+	magnet(); //- eases the follower towards the player - 
 	//point(); //- points at the player
 	//follow(); //- follows the player
 	//orbit(); //- orbits the player using physics

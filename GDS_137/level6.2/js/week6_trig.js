@@ -46,8 +46,20 @@ function animate()
 	//-------------------------------------------------------------------------------------------------------------------------
 	
 	//--------Make the blue pearl move to the player when it's within 300 pixels of the player.------
-	//--------If the pearl hits the player's x and y coordinates move it off screen.------------   -----
+	var dx = player.x - pearl.x;
+	var dy = player.y - pearl.y;
+	var dist = Math.sqrt(dx * dx + dy * dy);
 	
+	if (dist <= 300)
+	{
+	pearl.x += dx*.05;
+	pearl.y += dy*.05;
+	}
+	//--------If the pearl hits the player's x and y coordinates move it off screen.------------   -----
+	if (player.hitTestPoint(pearl))
+	{
+		pearl.x += 10000;
+	}
 	//--------------------------------------------------------------------------------------------------------------------------
 	//------------------------------------------------------END OF INSTRUCTIONS-------------------------------------------------
 	//--------------------------------------------------------------------------------------------------------------------------
