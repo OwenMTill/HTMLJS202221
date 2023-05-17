@@ -300,11 +300,10 @@ function animate()
 	}
 	
 
-	
+	explosion.drawCircle();
 	platform0.drawRect();
 	platform1.drawRect();
 	bullet.drawCircle();
-	explosion.drawCircle();
 	gun.drawRect();
 	player.drawRect();
 	
