@@ -15,10 +15,15 @@ var score;
 	context = canvas.getContext("2d");	
 	
 	var amount = 5;
+	var score = 0;
 	var particles = [];
 	var particles2 = [];
 	var colors = ["#00ff00", "#ff0000"];
 	
+		playerHit = function()
+	{
+	player.color = "#ffff00";
+	}
 	player = new GameObject({x:canvas.width/2, y:canvas.height - 100, width:75, height:75});
 
 	for(var i = 0; i < amount; i++)
@@ -34,6 +39,7 @@ var score;
 		particles[i].y = Math.random() * canvas.height;
 		particles[i].vy = Math.random() * 4 + 5;
 	}
+
 	for(var i = 0; i < amount; i++)
 	{
 		particles2[i] = new GameObject({width:10, height:10});
@@ -57,6 +63,9 @@ var score;
 	var fY = .97;
 	
 	var gravity = 1;
+
+	var colorChangeGreenTimer;
+	var colorChangeRedTimer;
 
 	interval = 1000/60;
 	timer = setInterval(animate, interval);
@@ -108,9 +117,9 @@ function animate()
 				particles[p].x = Math.random() * canvas.width;
 				particles[p].vy = rand(5, 8);
 				score++;
-				
+				player.color = colors[0];
+				setTimeout(playerHit, 500);
 			}
-
 
 		particles[p].drawRect();
 	}
@@ -129,15 +138,28 @@ function animate()
 			particles2[p].vy = rand(5, 8);
 			particles2[p].x = Math.random() * canvas.width;
 			}
+
+			if(particles2[p].hitTestObject(player))
+			{
+				particles2[p].y = -20;
+				particles2[p].x = Math.random() * canvas.width;
+				particles2[p].vy = rand(5, 8);
+				score = 0;
+				player.color = colors[1];
+				setTimeout(playerHit, 500);
+			}
 			//	2. re-calculate it's vy to be a random number between 5 and 15
 			//  3. reset its color randomly to one of the colors in the "colors" array
 			//     (Hint: The code to do this is already written above)
 		//-------------------------------------------------------------------------------------------------------------------------
 		
 		particles2[p].drawCircle();
+		context.font = "15px Arial black";
+		context.fillStyle = "black";
+		context.fillText("Score: " + score , 50, 50);
 	}
+	
 	
 
 }
-
 
