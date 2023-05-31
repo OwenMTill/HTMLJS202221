@@ -18,14 +18,14 @@ var score;
 	var score = 0;
 	var particles = [];
 	var particles2 = [];
-	var colors = ["#00ff00", "#ff0000"];
+	var colors = ["#00ff00", "#ff0000", "#ffff00"];
 	
-		playerHit = function()
+	playerHit = function()
 	{
 	player.color = "#ffff00";
 	}
 	player = new GameObject({x:canvas.width/2, y:canvas.height - 100, width:75, height:75});
-
+	player.color = colors[2];
 	for(var i = 0; i < amount; i++)
 	{
 		particles[i] = new GameObject({width:10, height:10});
