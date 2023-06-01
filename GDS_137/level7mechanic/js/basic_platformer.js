@@ -380,7 +380,7 @@ function animate()
 	context.fillText("Press Q to make an explosion AoE attack for 2 seconds(only once every 20 seconds)", 50, 250);
 	context.font = "15px Arial black";
 	context.fillStyle = "black";
-	context.fillText("Press C at the right time to parry and send the bullet back towards the enemy)", 50, 300);
+	context.fillText("Press C at the right time to parry and send the bullet back towards the enemy", 50, 300);
 }
 
 
