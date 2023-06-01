@@ -85,6 +85,17 @@ function animate()
 		player.vx += player.ax * player.force;
 	}
 
+	if(player.x < 0 + player.width/2)
+	{
+		player.x = player.width/2
+		player.vx = 0;
+	}
+
+	if(player.x > canvas.width - player.width/2)
+	{
+		player.x = canvas.width - player.width/2;
+		player.vx = 0;
+	}
 	player.vx *= fX;
 	player.vy *= fY;
 
@@ -113,7 +124,7 @@ function animate()
 		
 			if(particles[p].hitTestObject(player))
 			{
-				particles[p].y = -20;
+				particles[p].y = -100;
 				particles[p].x = Math.random() * canvas.width;
 				particles[p].vy = rand(5, 8);
 				score++;
@@ -141,9 +152,15 @@ function animate()
 
 			if(particles2[p].hitTestObject(player))
 			{
-				particles2[p].y = -20;
-				particles2[p].x = Math.random() * canvas.width;
-				particles2[p].vy = rand(5, 8);
+				for (i = 0; i < particles.length; i++)
+				{
+				particles[i].y = -100;
+				particles[i].vy = rand(5, 8);
+				particles[i].x = Math.random() * canvas.width;
+				particles2[i].y = -100;
+				particles2[i].x = Math.random() * canvas.width;
+				particles2[i].vy = rand(5, 8);
+				}
 				score = 0;
 				player.color = colors[1];
 				setTimeout(playerHit, 500);
